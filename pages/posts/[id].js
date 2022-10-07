@@ -29,6 +29,9 @@ export async function getStaticProps({ params }) {
 
     const postData = await getPostData(params.id)
 
+    const online_url = process.env.HOST
+    console.log(`from server side: ${online_url}`)
+
     return {
         props: {
             postData
@@ -37,6 +40,10 @@ export async function getStaticProps({ params }) {
 }
 
 const Post = ({ postData }) => {
+
+    const online_url = process.env.HOST
+    console.log(`from browser side: ${online_url}`)
+
     return (
         <Layout>
 
@@ -45,6 +52,10 @@ const Post = ({ postData }) => {
             </Head>
 
             <h1 className={utilStyles.heading2Xl}>{postData.title}</h1>
+
+            {/* <h3>{online_url}</h3>   ----- can not be used in HTML browser code */}
+            <h3>{process.env.NEXT_PUBLIC_HOST}</h3>
+
             <p>{postData.id}</p>
 
             {/* <p>{postData.date}</p> */}

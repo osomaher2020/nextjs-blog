@@ -4,6 +4,9 @@ import Script from 'next/script'
 import Layout from '../../components/layout'
 
 export default function TestPost() {
+
+    const host_name = process.env.NEXT_PUBLIC_HOST
+
     return (
         <>
             <Layout home="false">
@@ -18,6 +21,7 @@ export default function TestPost() {
                 }
                 /> */}
                 <h1>Test Post</h1>
+                <h3>{host_name}</h3>
                 <h3>btata btataaaa !</h3>
                 <h2>
                     <Link href="/">Back to home</Link>
